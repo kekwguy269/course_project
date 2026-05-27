@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Регистрация | QuickDash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <div class="register-container">
+        <img class="logo-img" id="logo-img" src="../main/img/quickdash-logo-light.png" alt="QuickDash logo">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+            <i class="fas fa-moon"></i>
+        </button>
+        
+        <h1><i class="fas fa-user-plus"></i> Регистрация</h1>
+        <p class="subtitle">Создайте аккаунт для заказа</p>
+        
+        <div id="error-message" class="error-message">
+            <i class="fas fa-exclamation-circle"></i> Пользователь с таким email уже существует
+        </div>
+        
+        <form id="register-form">
+            <div class="input-group">
+                <label><i class="fas fa-user"></i> Имя</label>
+                <input type="text" id="name" placeholder="Введите ваше имя" required>
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="email" placeholder="example@mail.com" required>
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-phone"></i> Телефон</label>
+                <input type="tel" id="phone" placeholder="+7 (999) 123-45-67">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> Пароль</label>
+                <input type="password" id="password" placeholder="Минимум 6 символов" required>
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-check-circle"></i> Подтверждение пароля</label>
+                <input type="password" id="confirm-password" placeholder="Повторите пароль" required>
+            </div>
+            <button type="submit" class="register-btn">
+                <i class="fas fa-user-plus"></i> Зарегистрироваться
+            </button>
+        </form>
+        
+        <div class="login-link">
+            Уже есть аккаунт? <a href="./login.html">Войти</a>
+        </div>
+        
+        <a href="../main/index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Вернуться на сайт
+        </a>
+    </div>
+
+    <script src="registration.js"></script>
+</body>
+</html>

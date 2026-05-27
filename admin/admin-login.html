@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Вход в админ-панель | QuickDash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <img class="logo-img" id="logo-img" src="../main/img/quickdash-logo-light.png" alt="QuickDash logo">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+            <i class="fas fa-moon"></i>
+        </button>
+        
+        <h1><i class="fas fa-shield-alt"></i> Админ-панель</h1>
+        <p class="subtitle">Войдите в систему управления</p>
+        
+        <div id="error-message" class="error-message">
+            <i class="fas fa-exclamation-circle"></i> Неверный логин или пароль
+        </div>
+        
+        <form id="login-form">
+            <div class="input-group">
+                <label><i class="fas fa-user"></i> Логин</label>
+                <input type="text" id="username" placeholder="Введите логин" required>
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> Пароль</label>
+                <input type="password" id="password" placeholder="Введите пароль" required>
+            </div>
+            <button type="submit" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i> Войти
+            </button>
+        </form>
+        
+        <a href="../main/index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Вернуться на сайт
+        </a>
+        
+        <div class="demo-credentials">
+            <p><i class="fas fa-info-circle"></i> <strong>Демо-доступ:</strong></p>
+            <p>Логин: <strong>admin</strong></p>
+            <p>Пароль: <strong>quickdash2024</strong></p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

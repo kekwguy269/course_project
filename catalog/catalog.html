@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>QuickDash - Каталог блюд</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <img class="logo-img" src="./img/quickdash logo.png" alt="QuickDash logo" style="border-radius: 12px;">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Поиск блюд...">
+                    <button class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <a href="../login/login.html" class="login-btn">
+                    <i class="fas fa-user"></i> Войти
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="../main/index.html">Главная</a></li>
+                    <li><a href="../main/index.html#about">О нас</a></li>
+                    <li><a href="../main/index.html#team">Команда</a></li>
+                    <li><a href="../main/index.html#contact">Контакты</a></li>
+                    <li><a href="./catalog.html">Каталог блюд</a></li>
+                    <li><a href="../admin/admin-login.html">Админ-панель</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="catalog-header">
+                <h1><i class="fa-solid fa-burger"></i> Наше меню</h1>
+                <p>Выберите своё любимое блюдо</p>
+            </div>
+
+            <div class="promo-banner">
+                <div class="promo-banner-content">
+                    <div class="promo-badge">
+                        <i class="fas fa-fire"></i> HOT!
+                    </div>
+                    <h2 class="promo-title">Скидка 20%</h2>
+                    <p class="promo-text">на первый заказ при регистрации</p>
+                    <a href="../login/login.html" class="promo-btn">
+                        Зарегистрироваться <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="promo-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <!-- Базовые товары -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/burger.png" alt="Классический бургер">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Классический бургер</div>
+                        <div class="product-price">299 <small>₽</small></div>
+                    </div>
+                    <button class="product-button" data-product="Классический бургер" data-price="299">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/double_cheeseburger.png" alt="Двойной чизбургер">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Двойной чизбургер</div>
+                        <div class="product-price">399 <small>₽</small></div>
+                    </div>
+                    <button class="product-button" data-product="Двойной чизбургер" data-price="399">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/nuggets.png" alt="Острые крылышки">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Острые крылышки</div>
+                        <div class="product-price">249 <small>₽</small></div>
+                    </div>
+                    <button class="product-button" data-product="Острые крылышки" data-price="249">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/potato.png" alt="Картошка фри">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Картошка фри</div>
+                        <div class="product-price">129 <small>₽</small></div>
+                    </div>
+                    <button class="product-button" data-product="Картошка фри" data-price="129">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/chicken_burger.png" alt="Чикен бургер">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Чикен бургер</div>
+                        <div class="product-price">279 <small>₽</small></div>
+                    </div>
+                    <button class="product-button" data-product="Чикен бургер" data-price="279">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/cola.png" alt="Кола 0.5л">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Кола 0.5л</div>
+                        <div class="product-price">99 <small>₽</small></div>
+                    </div>
+                    <button class="product-button" data-product="Кола 0.5л" data-price="99">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/icecream.png" alt="Мороженое пломбир">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Мороженое пломбир</div>
+                        <div class="product-price">89 <small>₽</small></div>
+                    </div>
+                    <button class="product-button" data-product="Мороженое пломбир" data-price="89">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/pizza.png" alt="Пицца Маргарита">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Пицца Маргарита</div>
+                        <div class="product-price">499 <small>₽</small></div>
+                    </div>
+                    <button class="product-button" data-product="Пицца Маргарита" data-price="499">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <img class="logo-img" src="./img/quickdash logo.png" alt="QuickDash logo" style="margin-bottom: 12px;">
+            <p>© 2026. QuickDash — сеть ресторанов быстрой доставки фастфуда.</p>
+            <p style="margin-top: 8px;">Работаем для вас с 2015 года</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #FFF3E8 0%, #FFE5D4 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+    transition: background 0.3s;
+}
+
+:root {
+    --red-hot: #E63946;
+    --orange-flame: #F4A261;
+    --dark-charcoal: #1D1D1F;
+    --transition-smooth: all 0.25s ease-out;
+}
+
+.payment-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 48px;
+    padding: 40px 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: background 0.3s, color 0.3s;
+    position: relative;
+}
+
+/* переключатель темы */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--red-hot);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    background: #c72a3a;
+}
+
+.logo-img {
+    max-width: 140px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--red-hot);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1D1D1F;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+}
+
+.order-summary {
+    background: #f8f8f8;
+    border-radius: 28px;
+    padding: 20px;
+    margin: 24px 0;
+    transition: background 0.3s;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 2px solid #ddd;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--red-hot);
+    transition: border-color 0.3s;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.25s;
+    background: white;
+    color: #1D1D1F;
+}
+
+.payment-form input:focus {
+    border-color: #E63946;
+}
+
+.pay-btn {
+    width: 100%;
+    background: #E63946;
+    color: white;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    margin-top: 10px;
+}
+
+.pay-btn:hover {
+    background: #c72a3a;
+    transform: translateY(-2px);
+}
+
+/* тёмная тема */
+body.dark-theme {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+body.dark-theme .payment-container {
+    background: #1e1e1e;
+}
+
+body.dark-theme h1 {
+    color: #f0f0f0;
+}
+
+body.dark-theme .order-summary {
+    background: #2a2a2a;
+}
+
+body.dark-theme .order-item {
+    color: #f0f0f0;
+}
+
+body.dark-theme .order-total {
+    border-top-color: #444;
+}
+
+body.dark-theme .payment-form input {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+body.dark-theme .payment-form input:focus {
+    border-color: var(--orange-flame);
+}
+
+body.dark-theme .payment-form input::placeholder {
+    color: #888;
+}
+
+body.dark-theme .back-link {
+    color: var(--orange-flame);
+}
+
+body.dark-theme .back-link:hover {
+    color: #ffb347;
+}
+
+@media (max-width: 480px) {
+    .payment-container {
+        padding: 30px 20px;
+    }
+
+    .logo-img {
+        max-width: 120px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

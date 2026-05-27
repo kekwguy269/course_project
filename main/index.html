@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>QuickDash - главная страница</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <img class="logo-img" id="logo-img" src="./img/quickdash-logo-light.png" alt="QuickDash logo" style="border-radius: 12px;">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Поиск блюд...">
+                    <button class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <a href="../login/login.html" class="login-btn">
+                    <i class="fas fa-user"></i> Войти
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#team">Команда</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="../catalog/catalog.html" id="catalog-link">Каталог блюд</a></li>
+                    <li><a href="../admin/admin-login.html" id="admin-link">Админ-панель</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="container">
+            <div class="hero">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fas fa-bolt"></i> Доставка за 30 минут или бесплатно
+                        </div>
+                        <h1 class="hero-title">
+                            Вкус, который <span>покоряет</span> с первой минуты
+                        </h1>
+                        <p class="hero-text">
+                            QuickDash — сеть ресторанов быстрой доставки фастфуда.
+                            Сочные бургеры, хрустящая картошка фри и любимые закуски
+                            прямо к вашему столу. Горячими. Быстрыми. Вкусными.
+                        </p>
+                        <a href="../catalog/catalog.html" class="btn">Заказать сейчас <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="hero-image">
+                        <video class="hero-video" autoplay loop muted playsinline>
+                            <source src="./video/vecteezy_a-restaurant-with-wooden-tables-and-chairs-in-front-of-a-window_50735722.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <p style="font-size: 0.95rem; margin-bottom: 20px; color: #444;">Свежие продукты, быстрая доставка и любовь к нашим гостям.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-hamburger"></i></div>
+                        <h3>Сочные бургеры</h3>
+                        <p>100% натуральная говядина, свежие овощи и фирменные соусы. Каждый бургер — шедевр.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-motorcycle"></i></div>
+                        <h3>Быстрая доставка</h3>
+                        <p>Среднее время доставки — 25 минут. Горячая еда, которая не ждёт.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-percent"></i></div>
+                        <h3>Акции и скидки</h3>
+                        <p>Каждый день специальные предложения. Подписка на доставку — ещё выгоднее.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- секция "наша команда" с Swiper -->
+        <section id="team" class="section" style="background: var(--gray-soft); border-radius: 36px 36px 0 0; margin-top: 10px;">
+            <div class="container">
+                <h2 class="section-title">Наша команда</h2>
+                <p style="margin-bottom: 24px; font-size: 0.9rem;">Те, кто готовит ваш идеальный обед</p>
+                
+                <div class="swiper team-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Алексей Григорьев -->
+                        <div class="swiper-slide">
+                            <div class="team-member">
+                                <div class="member-photo">
+                                    <img class="member-photo-img" src="./img/aleksey_grigoriev.png" alt="Фото Алексей Григорьев"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="no-photo" style="display: none;">АГ</div>
+                                </div>
+                                <h3>Алексей Григорьев</h3>
+                                <div class="role">Основатель сети</div>
+                                <p>Более 15 лет в ресторанном бизнесе. Мечтал создать фастфуд, который уважает вкус.</p>
+                            </div>
+                        </div>
+                        <!-- Марина Ветрова -->
+                        <div class="swiper-slide">
+                            <div class="team-member">
+                                <div class="member-photo">
+                                    <img class="member-photo-img" src="./img/marina_vetrova.png" alt="Фото Марина Ветрова"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="no-photo" style="display: none;">МВ</div>
+                                </div>
+                                <h3>Марина Ветрова</h3>
+                                <div class="role">Шеф-повар</div>
+                                <p>Разработала фирменные соусы и рецепты, от которых невозможно оторваться.</p>
+                            </div>
+                        </div>
+                        <!-- Денис Фокин -->
+                        <div class="swiper-slide">
+                            <div class="team-member">
+                                <div class="member-photo">
+                                    <img class="member-photo-img" src="./img/denis_fokin.png" alt="Фото Денис Фокин"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="no-photo" style="display: none;">ДФ</div>
+                                </div>
+                                <h3>Денис Фокин</h3>
+                                <div class="role">Руководитель доставки</div>
+                                <p>Оптимизировал логистику — теперь еда приезжает ещё быстрее.</p>
+                            </div>
+                        </div>
+                        <!-- Екатерина Новик -->
+                        <div class="swiper-slide">
+                            <div class="team-member">
+                                <div class="member-photo">
+                                    <img class="member-photo-img" src="./img/ekaterina_novik.png" alt="Фото Екатерина Новик"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="no-photo" style="display: none;">ЕН</div>
+                                </div>
+                                <h3>Екатерина Новик</h3>
+                                <div class="role">Клиентский сервис</div>
+                                <p>Заботится о том, чтобы каждый гость оставался довольным.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Навигация -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-feedback">
+                    <div class="two-columns">
+                        <div>
+                            <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 24px; font-family: 'Playfair Display';">
+                                <i class="fas fa-location-dot"></i> Контакты
+                            </h3>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div><strong>Москва, ул. Вкусная, 15</strong><br>Ресторан и зона выдачи</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div><strong>+7 (495) 123-45-67</strong><br>Приём заказов 9:00–23:00</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+                                <div><strong>+7 (999) 888-77-66</strong><br>WhatsApp для заказов</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fab fa-telegram-plane"></i></div>
+                                <div><strong>@quickdash_bot</strong><br>Telegram-бот для заказа</div>
+                            </div>
+                        </div>
+
+                        <div id="feedback">
+                            <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; font-family: 'Playfair Display';">
+                                <i class="fa-regular fa-comment"></i> Обратная связь
+                            </h3>
+                            <p style="margin-bottom: 20px; opacity: 0.8; font-size: 0.85rem;">Пожелания, жалобы, благодарности — напишите нам!</p>
+                            <form class="feedback-form" action="#" method="POST">
+                                <input type="text" placeholder="Ваше имя" required>
+                                <input type="tel" placeholder="Номер телефона" required>
+                                <textarea rows="3" placeholder="Ваш отзыв или предложение..."></textarea>
+                                <button type="submit" class="btn btn-dark">Отправить <i class="fas fa-paper-plane"></i></button>
+                            </form>
+
+                            <div class="map-container">
+                                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 16px; margin-top: 32px; font-family: 'Playfair Display';">
+                                    <i class="fas fa-map-marked-alt"></i> Мы на карте
+                                </h3>
+                                <iframe class="google-map"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.1234567890123!2d37.617634!3d55.755826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a2c2b2b2b%3A0x1234567890abcdef!2z0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8!5e0!3m2!1sru!2sru!4v1700000000000!5m2!1sru!2sru"
+                                    width="100%" height="250" style="border:0; border-radius: 28px;" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                                <p style="margin-top: 12px; font-size: 0.75rem; opacity: 0.7;">
+                                    <i class="fas fa-location-dot"></i> г. Москва, ул. Вкусная, 15
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <img class="logo-img" src="./img/quickdash-logo-light.png" alt="QuickDash logo" style="margin-bottom: 12px;">
+            <p>© 2026. QuickDash — сеть ресторанов быстрой доставки фастфуда.</p>
+            <p style="margin-top: 8px;">Работаем для вас с 2015 года</p>
+        </div>
+    </footer>
+
+    <a href="#home" class="scroll-to-top" id="scrollToTop" aria-label="Наверх">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
