@@ -104,54 +104,35 @@ body {
     display: block;
 }
 
-/* поисковая строка */
-.search-container {
-    display: flex;
-    width: 100%;
-    max-width: 300px;
-    margin: 10px auto;
-    position: relative;
-}
-
-.search-input {
-    flex: 1;
-    padding: 12px 16px;
-    border: 2px solid rgba(230, 57, 70, 0.2);
-    border-radius: 50px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    background: white;
-    color: #1D1D1F;
-    transition: var(--transition-smooth);
-    outline: none;
-}
-
-.search-input:focus {
-    border-color: var(--red-hot);
-    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
-}
-
-.search-button {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--red-hot);
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    transition: var(--transition-smooth);
-    display: flex;
+/* кнопка входа */
+.login-btn {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
+    background: transparent;
+    border: 2px solid var(--red-hot);
+    color: var(--red-hot);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    width: auto;
+    min-width: 100px;
+    margin: 5px auto;
 }
 
-.search-button:hover {
-    background: #c72a3a;
-    transform: translateY(-50%) scale(1.05);
+.login-btn:hover {
+    background: var(--red-hot);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.login-btn i {
+    font-size: 0.9rem;
 }
 
 .nav-links {
@@ -267,12 +248,6 @@ body {
     font-size: 0.75rem;
     color: var(--red-hot);
     margin-bottom: 20px;
-}
-
-.hero-image img {
-    width: 100%;
-    border-radius: 28px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .hero-video {
@@ -415,20 +390,6 @@ body {
     opacity: 1;
 }
 
-/* предотвращаем скролл страницы от swiper */
-.team-swiper {
-    overflow: hidden;
-}
-
-.swiper-wrapper {
-    transition-timing-function: ease-out;
-}
-
-/* блокируем передачу скролла на страницу */
-.swiper-slide {
-    overflow: hidden;
-}
-
 /* контакты и обратная связь */
 .contact-feedback {
     background: var(--dark-charcoal);
@@ -557,37 +518,6 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* кнопка входа */
-.login-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: transparent;
-    border: 2px solid var(--red-hot);
-    color: var(--red-hot);
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: var(--transition-smooth);
-    cursor: pointer;
-    width: auto;
-    min-width: 100px;
-    margin: 5px auto;
-}
-
-.login-btn:hover {
-    background: var(--red-hot);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.login-btn i {
-    font-size: 0.9rem;
-}
-
 /* тёмная тема страницы */
 body.dark-theme {
     background-color: #121212;
@@ -651,20 +581,6 @@ body.dark-theme .nav-links a::after {
 body.dark-theme .nav-links a:hover {
     color: var(--orange-flame);
     background: rgba(244, 162, 97, 0.1);
-}
-
-body.dark-theme .search-input {
-    background: #2a2a2a;
-    color: #f0f0f0;
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-body.dark-theme .search-input:focus {
-    border-color: var(--orange-flame);
-}
-
-body.dark-theme .search-input::placeholder {
-    color: #888;
 }
 
 body.dark-theme .google-map {
@@ -739,11 +655,11 @@ body.dark-theme .swiper-pagination-bullet {
     .hero-video {
         min-height: 200px;
     }
-    
+
     .nav-links {
         gap: 12px;
     }
-    
+
     .nav-links a {
         font-size: 0.75rem;
         padding: 4px 6px;
@@ -758,18 +674,18 @@ body.dark-theme .swiper-pagination-bullet {
     .team-swiper .swiper-slide {
         width: 260px;
     }
-    
+
     .team-swiper {
         padding-left: 8px;
         padding-right: 8px;
     }
-    
+
     .swiper-button-prev,
     .swiper-button-next {
         width: 32px;
         height: 32px;
     }
-    
+
     .swiper-button-prev:after,
     .swiper-button-next:after {
         font-size: 0.9rem;
