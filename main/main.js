@@ -1,4 +1,4 @@
-// инициализация Swiper (предотвращаем скролл страницы)
+// инициализация Swiper
 let currentScrollPosition = window.scrollY;
 
 function saveScrollPosition() {
@@ -38,40 +38,22 @@ const teamSwiper = new Swiper('.team-swiper', {
     simulateTouch: true,
     allowTouchMove: true,
     breakpoints: {
-        0: {
-            centeredSlides: true,
-            spaceBetween: 12,
-        },
-        380: {
-            centeredSlides: true,
-            spaceBetween: 16,
-        },
-        480: {
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            spaceBetween: 20,
-        },
-        768: {
-            centeredSlides: false,
-            slidesPerView: 2.2,
-            spaceBetween: 24,
-        },
-        1024: {
-            centeredSlides: false,
-            slidesPerView: 3,
-            spaceBetween: 24,
-        }
+        0: { centeredSlides: true, spaceBetween: 12 },
+        380: { centeredSlides: true, spaceBetween: 16 },
+        480: { centeredSlides: true, slidesPerView: 'auto', spaceBetween: 20 },
+        768: { centeredSlides: false, slidesPerView: 2.2, spaceBetween: 24 },
+        1024: { centeredSlides: false, slidesPerView: 3, spaceBetween: 24 }
     },
     on: {
         slideChangeTransitionStart: saveScrollPosition,
         slideChangeTransitionEnd: restoreScrollPosition,
         autoplayStart: saveScrollPosition,
         autoplayStop: saveScrollPosition,
-        navigationNext: function() {
+        navigationNext: function () {
             saveScrollPosition();
             setTimeout(restoreScrollPosition, 50);
         },
-        navigationPrev: function() {
+        navigationPrev: function () {
             saveScrollPosition();
             setTimeout(restoreScrollPosition, 50);
         }
@@ -147,20 +129,20 @@ function smoothScrollTo(targetY, duration = 800) {
     const startY = window.scrollY;
     const distance = targetY - startY;
     let startTime = null;
-    
+
     function animation(currentTime) {
         if (startTime === null) startTime = currentTime;
         const timeElapsed = currentTime - startTime;
         const progress = Math.min(timeElapsed / duration, 1);
         const easeOutQuad = progress * (2 - progress);
-        
+
         window.scrollTo(0, startY + distance * easeOutQuad);
-        
+
         if (timeElapsed < duration) {
             requestAnimationFrame(animation);
         }
     }
-    
+
     requestAnimationFrame(animation);
 }
 
@@ -185,10 +167,10 @@ const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         const targetId = link.getAttribute('href');
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
             const targetPosition = targetElement.offsetTop - 20;
             smoothScrollTo(targetPosition, 700);
@@ -196,33 +178,8 @@ navLinks.forEach(link => {
     });
 });
 
-// поисковая строка
-const searchInput = document.querySelector('.search-input');
-const searchButton = document.querySelector('.search-button');
-
-function handleSearch() {
-    const query = searchInput?.value.trim();
-    if (query) {
-        alert(`🔍 Поиск: "${query}". Функция поиска скоро будет доступна!`);
-    } else {
-        alert('🔍 Введите название блюда для поиска');
-    }
-}
-
-if (searchButton) {
-    searchButton.addEventListener('click', handleSearch);
-}
-
-if (searchInput) {
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
-    });
-}
-
 // обработка формы обратной связи
-document.querySelector('.feedback-form')?.addEventListener('submit', function(e) {
+document.querySelector('.feedback-form')?.addEventListener('submit', function (e) {
     e.preventDefault();
     alert('Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.');
     this.reset();
