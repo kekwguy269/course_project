@@ -41,6 +41,27 @@ if (themeToggle) {
     });
 }
 
+// Функция для обработки клика по кнопке заказа
+function handleOrderClick(e) {
+    const button = e.currentTarget;
+    const productName = button.getAttribute('data-product');
+    const productPrice = button.getAttribute('data-price');
+    if (productName && productPrice) {
+        window.location.href = `../payment/payment.html?product=${encodeURIComponent(productName)}&price=${productPrice}`;
+    }
+}
+
+// Функция для привязки обработчиков ко всем кнопкам заказа
+function attachOrderButtons() {
+    const productButtons = document.querySelectorAll('.product-button');
+    productButtons.forEach(button => {
+        // Удаляем старый обработчик, если он был
+        button.removeEventListener('click', handleOrderClick);
+        // Добавляем новый
+        button.addEventListener('click', handleOrderClick);
+    });
+}
+
 // поисковая строка с фильтрацией
 const searchInput = document.querySelector('.search-input');
 const searchButton = document.querySelector('.search-button');
@@ -51,7 +72,10 @@ function filterProducts(searchTerm) {
     let hasVisibleProducts = false;
 
     productCards.forEach(card => {
-        const productTitle = card.querySelector('.product-title').textContent.toLowerCase();
+        const productTitleElement = card.querySelector('.product-title');
+        if (!productTitleElement) return;
+        
+        const productTitle = productTitleElement.textContent.toLowerCase();
         const searchLower = searchTerm.toLowerCase().trim();
 
         if (searchTerm === '' || productTitle.includes(searchLower)) {
@@ -160,93 +184,91 @@ function addClearButton() {
 }
 
 // стили для сообщения "не найдено"
-const style = document.createElement('style');
-style.textContent = `
-    .no-results-message {
-        text-align: center;
-        padding: 40px 20px;
-        background: white;
-        border-radius: 28px;
-        margin: 20px 0;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-    
-    .no-results-message i {
-        font-size: 3rem;
-        color: var(--red-hot);
-        margin-bottom: 16px;
-    }
-    
-    .no-results-message p {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 20px;
-    }
-    
-    .clear-search-btn {
-        background: var(--red-hot);
-        color: white;
-        border: none;
-        padding: 10px 24px;
-        border-radius: 50px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition-smooth);
-    }
-    
-    .clear-search-btn:hover {
-        background: #c72a3a;
-        transform: translateY(-2px);
-    }
-    
-    body.dark-theme .no-results-message {
-        background: #1e1e1e;
-    }
-    
-    body.dark-theme .no-results-message p {
-        color: #bbbbbb;
-    }
-    
-    .search-clear:hover {
-        background: rgba(0,0,0,0.1);
-        color: var(--red-hot);
-    }
-    
-    body.dark-theme .search-clear {
-        color: #aaa;
-    }
-    
-    body.dark-theme .search-clear:hover {
-        background: rgba(255,255,255,0.1);
-        color: var(--orange-flame);
-    }
-`;
-document.head.appendChild(style);
+if (!document.querySelector('#dynamic-styles')) {
+    const style = document.createElement('style');
+    style.id = 'dynamic-styles';
+    style.textContent = `
+        .no-results-message {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 28px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .no-results-message i {
+            font-size: 3rem;
+            color: var(--red-hot);
+            margin-bottom: 16px;
+        }
+        
+        .no-results-message p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .clear-search-btn {
+            background: var(--red-hot);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+        
+        .clear-search-btn:hover {
+            background: #c72a3a;
+            transform: translateY(-2px);
+        }
+        
+        body.dark-theme .no-results-message {
+            background: #1e1e1e;
+        }
+        
+        body.dark-theme .no-results-message p {
+            color: #bbbbbb;
+        }
+        
+        .search-clear:hover {
+            background: rgba(0,0,0,0.1);
+            color: var(--red-hot);
+        }
+        
+        body.dark-theme .search-clear {
+            color: #aaa;
+        }
+        
+        body.dark-theme .search-clear:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--orange-flame);
+        }
+    `;
+    document.head.appendChild(style);
+}
 
 addClearButton();
-
-// функция для обновления обработчиков кнопок заказа
-function attachOrderButtons() {
-    const productButtons = document.querySelectorAll('.product-button');
-    productButtons.forEach(button => {
-        button.removeEventListener('click', handleOrderClick);
-        button.addEventListener('click', handleOrderClick);
-    });
-}
-
-function handleOrderClick(e) {
-    const button = e.currentTarget;
-    const productName = button.getAttribute('data-product');
-    const productPrice = button.getAttribute('data-price');
-    window.location.href = `../payment/payment.html?product=${encodeURIComponent(productName)}&price=${productPrice}`;
-}
 
 // функция для отображения цены
 function formatPrice(price) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 }
 
-// загрузка товаров из админ-панели (без дублирования)
+// функция для экранирования HTML
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function (m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
+// загрузка товаров из админ-панели
 function loadProductsFromAdmin() {
     const savedProducts = localStorage.getItem('admin_products');
     const savedImages = JSON.parse(localStorage.getItem('product_images') || '{}');
@@ -291,20 +313,10 @@ function loadProductsFromAdmin() {
 
             productsGrid.appendChild(productCard);
         });
-
-        attachOrderButtons();
     }
-}
-
-// функция для экранирования HTML
-function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function (m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        return m;
-    });
+    
+    // Привязываем обработчики ко всем кнопкам (и старым, и новым)
+    attachOrderButtons();
 }
 
 // загружаем товары при загрузке страницы
@@ -315,4 +327,9 @@ window.addEventListener('storage', function (e) {
     if (e.key === 'admin_products' || e.key === 'product_images') {
         loadProductsFromAdmin();
     }
+});
+
+// также привязываем обработчики к уже существующим кнопкам после полной загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
+    attachOrderButtons();
 });
