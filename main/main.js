@@ -22,7 +22,7 @@ const teamSwiper = new Swiper('.team-swiper', {
     spaceBetween: 16,
     loop: true,
     autoplay: {
-        delay: 3000,
+        delay: 6000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
     },
